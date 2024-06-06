@@ -1,0 +1,17 @@
+<div class="face-snap-card" [ngClass]="{snapped: buttonText==='liked'}">
+  <p>{{ 4346234.367 | number: '1.0-1' }}</p> <!--La configuration signifie :au moins un chiffre pour les entiers ;
+     minimum 0 chiffres après la virgule – maximum 1 chiffres (Angular arrondira donc à l'entier le plus proche).-->
+     <p>{{ 0.336 | percent}}</p> <!--sa fonctionne de la meme maniere que decimalPipe-->
+     <p>{{ 33.6 | currency : 'FCFA'}}</p>
+  <h2>{{faceSnap.title | uppercase}}</h2>
+  <a routerLink="/facesnap">Back</a>
+  <p>Date de mise en ligne : {{faceSnap.createdDate | date: 'à HH:mm, le d MMMM yyyy'}}</p>
+  <img [src]="faceSnap.imageUrl" [alt]="faceSnap.title">
+  <p>{{faceSnap.description}}</p>
+  <p *ngIf="faceSnap.location">Photo:{{faceSnap.location}}</p>
+  <p>
+    <button (click)="onSnaps()">{{buttonText}}</button>
+    <span [ngStyle] = "{color:'rgb(0,'+ faceSnap.snaps +',0)'}">👉{{faceSnap.snaps}}</span>
+  </p>
+</div>
+
